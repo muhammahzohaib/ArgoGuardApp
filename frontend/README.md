@@ -1,16 +1,46 @@
-# React + Vite
+# 💻 ArgoGuard AI Web Dashboard Cockpit
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is the **Web Dashboard Frontend** for **ArgoGuard AI**, a smart farming and resiliency cockpit. It is built using **React (v19)**, **Vite**, **Tailwind CSS (v4)**, **Lucide React**, and **Recharts**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🌟 Key Dashboard Features
 
-## React Compiler
+1.  **Multi-Agent Orchestration Cockpit:**
+    *   Initiate a sequential **6-agent classification run** directly from the UI.
+    *   Follow step-by-step progress with progress bars and dynamic timeline checkpoints.
+    *   Expand individual agent logs to inspect precise diagnostic telemetry: *Observation, Reasoning, Action, Outcome*, and *Failsafe Recovery* overrides.
+2.  **Treatment Simulation Slider:**
+    *   An interactive visual slider allowing comparison between diseased (before treatment) and healthy (after treatment) crop foliage.
+3.  **Dynamic Action Simulation Engine:**
+    *   Test hardware reliability by simulating actions (e.g. *Emergency Pesticide Orders*, *Farmer SMS Alerts*, *Irrigation Upgrades*).
+    *   Select and inject failure scenarios: *API Failures*, *Connection Timeouts*, *Invalid Responses*, or *Missing Geographical Data*.
+    *   Observe live metrics: transaction cost, execution latency, retry tracking, automatic supplier failover logs, rollback sequences, and before/after JSON states.
+4.  **Recharts Agricultural Analytics:**
+    *   Historical **Crop Health Index** over 6-week intervals.
+    *   **Zonal Soil Moisture vs Spread Risk** comparison chart.
+5.  **Active Safety Alerts Panel:**
+    *   Instant display of ongoing biological risk notifications and transient valve/actuator failsafe reports.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🚀 Running the Web Dashboard
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Prerequisites
+Make sure the **Backend Server** is up and running first so the dashboard can fetch live telemetry and communicate with the real failover services.
+*(Note: If the backend is offline, the dashboard automatically runs in a local high-fidelity premium simulation mode so all interactive buttons and logs are still fully operational).*
+
+### Commands
+1. Navigate to this `frontend` directory:
+   ```bash
+   cd frontend
+   ```
+2. Install the necessary node modules:
+   ```bash
+   npm install
+   ```
+3. Run the Vite local development server:
+   ```bash
+   npm run dev
+   ```
+4. Open your web browser and go to `http://localhost:5173`.
