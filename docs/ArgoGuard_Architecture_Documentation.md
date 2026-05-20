@@ -16,11 +16,26 @@ The system allows farmers to upload images of their crops, which are analyzed by
 
 The system follows a classic decoupled client-server architecture:
 
-### Frontend (Client)
-- **Framework:** Flutter / Dart
-- **State Management:** `Provider` architecture for reactive UI updates (`AuthProvider`, `AnalysisProvider`, `WeatherProvider`).
-- **UI/UX:** A highly modern, premium glassmorphic interface with rich animations, responsive layouts, and intuitive dashboards.
-- **Key Modules:** Dashboard (Weather & Stats), Camera Upload/Scan, Active Alerts, Notification History, and detailed AI Analysis breakdown.
+### Frontend Clients (Dual-Client Architectures)
+
+The ecosystem provides two specialized frontend clients targeting different operational use cases:
+
+#### A. 💻 React Web Dashboard Cockpit (Located inside `/frontend`)
+*   **Purpose:** Served as the high-fidelity management console and resiliency cockpit for farm operators.
+*   **Tech Stack:** React (v19), Vite, Tailwind CSS v4, Lucide React, Axios, and Recharts.
+*   **Secure Authentication & MFA OTP System:** 
+    *   **Email & Password Auth:** Full registration and sign-in interfaces.
+    *   **Multi-Factor OTP Verification:** Restricts access until a 6-digit OTP code is validated. The system calls `/auth/send-otp` and `/auth/verify-otp` endpoints, with automatic offline simulated code generation and master key bypass triggers.
+    *   **Social Sign-In Integration:** Custom styled Google and Facebook OAuth buttons mapping to the MERN backend `/auth/social-login` controller.
+    *   **Persistent Sessions:** Implements JWT-based token verification against `/auth/me` on startup.
+*   **Observability Cockpit:** Features interactive 6-Agent pipeline diagnostics with telemetry logs, side-by-side diseased foliage comparison sliders, and dynamic hardware failover/rollback execution sandboxes.
+
+#### B. 📱 Flutter Mobile App (On-Field Companion) (Located inside `/lib`, `/android`, `/ios`)
+-   **Purpose:** Pocket-sized mobile app for field operators.
+-   **Tech Stack:** Flutter / Dart
+-   -   **State Management:** `Provider` architecture for reactive UI updates (`AuthProvider`, `AnalysisProvider`, `WeatherProvider`).
+-   -   **UI/UX:** A highly modern, premium glassmorphic interface with rich animations, responsive layouts, and intuitive dashboards.
+-   -   **Key Modules:** Dashboard (Weather & Stats), Camera Upload/Scan, Active Alerts, Notification History, and detailed AI Analysis breakdown.
 
 ### Backend (Server)
 - **Framework:** Node.js with Express.js

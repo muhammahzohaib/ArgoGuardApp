@@ -46,8 +46,13 @@ graph TD
 
 ## ⚡ Core Components
 
-### 1. 💻 Web Dashboard (React + Vite + Tailwind CSS + Recharts)
-The **Web Dashboard** serves as the **Command & Control Cockpit** for farm managers. Designed with a gorgeous, high-fidelity dark glassmorphic UI, it provides extensive system observation capabilities:
+### 1. 💻 Web Dashboard Cockpit (Located inside the `frontend` directory)
+The **Web Dashboard** is located in the `[frontend](file:///Users/muhamadzohaib/Downloads/ArgoGuardAi/frontend)` folder of this repository. Built with React (v19), Vite, and Tailwind CSS v4, it serves as the central **Command & Control Cockpit** for farm managers. Designed with a gorgeous, high-fidelity dark glassmorphic UI, it provides extensive security and observation capabilities:
+*   **Proper Secure Authentication & OTP Verification:** 
+    *   **Secure Email/Password Auth:** Full support for standard user registration (Name, Email, Password, operational Role selection) and logins.
+    *   **Multi-Factor OTP (One-Time Password) Verification:** A built-in security check. Users must verify their accounts using a 6-digit OTP verification code sent to their email (or simulated locally if the backend is offline).
+    *   **Social OAuth Sign-In:** Beautiful, styled buttons for "Continue with Google" and "Continue with Facebook" for instant third-party authentication.
+    *   **Session Persistence:** Checks for stored JWT tokens in `localStorage` on startup. If the backend is connected, it verifies credentials via the `/auth/me` endpoint; if offline, it restores simulated session details seamlessly.
 *   **6-Agent Diagnostic Runner:** Manually or automatically trigger the sequential agent pipeline (Input Aggregation ➡️ Disease Analysis ➡️ Risk Assessment ➡️ Constraint Planning ➡️ Action Execution ➡️ Recovery). View precise observation, reasoning, action, outcome, and recovery telemetry logs in real time.
 *   **Treatment Simulation Slider:** An interactive, side-by-side comparison slider showing before vs after states of diseased foliage (e.g. Tomato Late Blight) to visualize recovery progress.
 *   **Hardware/Action Simulation Engine:** Run failure scenarios (such as API timeouts, internal 500 errors, invalid supplier responses, and missing geographical coordinate exceptions) to test backend resiliency. Displays live financial cost calculations, latency, retry attempts, state rollback audits, and before-and-after state snapshots.
